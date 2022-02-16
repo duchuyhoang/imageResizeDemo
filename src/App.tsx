@@ -37,7 +37,7 @@ const generateIconImage = (image: string) => {
     if (size) {
       let img = document.createElement("img");
       img.src = image;
-      ctx.drawImage(img, -size / 2, -size / 2, size * 1.8, size * 1.8);
+      ctx.drawImage(img, (-size * 3) / 2, (-size * 3) / 2, size * 3, size * 3);
     }
     ctx.restore();
     // },
@@ -71,7 +71,6 @@ function switchImage(
   const currentImageIndex = listImage?.findIndex((image: ISingleImage) => {
     return image.url === currentImageUrl;
   });
-  console.log(currentImageIndex);
 
   if (currentImageIndex !== -1) {
     let newIndex = 0;
@@ -127,16 +126,20 @@ fabric.Object.prototype.controls.mtr.render = generateIconImage(
   rotateImageIcon
 );
 
-fabric.Object.prototype.controls.zoomImage = new fabric.Control({
-  x: 0.5,
-  y: 0.5,
-  offsetY: 0,
-  offsetX: 0,
-  cursorStyle: "pointer",
-  // mouseDownHandler:deleteObject,
-  mouseUpHandler: switchImage,
-  render: generateIconImage(zoomImageIcon),
-});
+// zoom image br
+
+fabric.Object.prototype.controls.br.render = generateIconImage(zoomImageIcon);
+
+// fabric.Object.prototype.controls.zoomImage = new fabric.Control({
+//   x: 0.5,
+//   y: 0.5,
+//   offsetY: 0,
+//   offsetX: 0,
+//   cursorStyle: "pointer",
+//   // mouseDownHandler:deleteObject,
+//   mouseUpHandler: switchImage,
+//   render: generateIconImage(zoomImageIcon),
+// });
 
 export interface ISingleImage {
   url: string;

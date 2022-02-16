@@ -14,7 +14,6 @@ import { IGroupImage } from "./App";
   };
 
   useEffect(() => {
-    console.log("ad", listImages[0]);
     if (listImages[0]) {
       const img = fabric.Image.fromURL(
         // "https://www.w3schools.com/w3css/img_lights.jpg",
@@ -22,11 +21,9 @@ import { IGroupImage } from "./App";
         (image) => {
           console.log("vvvv", canvasObj);
           if (canvasObj) {
-            // canvasObj.setCon
-            // image.setControlVisible("ml", false);
             image.setControlsVisibility({
               bl: false,
-              br: false,
+              br: true,
               mb: false,
               ml: false,
               mr: false,
@@ -35,6 +32,7 @@ import { IGroupImage } from "./App";
               tr: false,
               mtr: true,
             });
+            image.borderColor='#1D474F';
             image.setOptions({
               total: listImages.length,
               list: listImages,
@@ -43,6 +41,7 @@ import { IGroupImage } from "./App";
           }
         },
         {
+          // stroke: 'red',
           // top: 100,
           // left: 200,
           // hasRotatingPoint: false,
