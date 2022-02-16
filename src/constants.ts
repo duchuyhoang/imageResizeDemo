@@ -1,0 +1,1 @@
+import deleteIcon from "./deleteIcon.png";
